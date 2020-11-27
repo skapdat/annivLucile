@@ -1,20 +1,25 @@
 import React from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 import './App.css';
+import Home from './Home';
+import Admin from './Admin';
+class App extends React.Component {
 
-function App() {
-  const quest = [
-    '1',
-    '2',
-    '3'
-  ];
-
-  return (
-    <main>
-      {
-        quest.map(e =>  <p>{e}</p>)
-      }
-    </main>
-  );
+  render() {
+    return (
+      <Router>
+        <Switch>
+          <Route exact path='/' component={Home} />
+          <Route path='/admin' component={Admin} />
+        </Switch>
+      </Router>
+    );
+  }
 }
 
 export default App;
