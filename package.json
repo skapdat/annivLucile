@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@u-wave/react-vimeo": "^0.9.1",
     "firebase": "^8.1.1",
     "react": "^16.14.0",
     "react-dom": "^16.6.1",

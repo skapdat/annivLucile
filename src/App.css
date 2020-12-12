@@ -1,17 +1,3 @@
-main {
-  align-content: center;
-  box-sizing: border-box;
-  display: grid;
-  font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
-    'Arial', sans-serif;
-  hyphens: auto;
-  line-height: 1.65;
-  margin: 0 auto;
-  max-width: 680px;
-  min-height: 100vh;
-  padding: 72px 0;
-  text-align: center;
-}
 h1 {
   font-size: 45px;
 }
@@ -41,4 +27,59 @@ pre {
 code:before,
 code:after {
   content: '\`';
+}
+main {
+  align-content: center;
+  box-sizing: border-box;
+  font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
+    'Arial', sans-serif;
+  hyphens: auto;
+  line-height: 1.65;
+  margin: 0 auto;
+  text-align: center;
+}
+main p {
+  display: inline-block;
+  width: 20%;
+  height: 150px;
+  padding: 30px;
+  text-align: center;
+  box-sizing: border-box;
+  background-color: #0076ff;
+  margin: 0;
+  cursor: pointer;
+}
+main p:hover {
+  background-color: #0555af;
+}
+
+#playCt {
+  position: fixed;
+  width: 96%;
+  height: 96%;
+  top: 2%;
+  left: 2%;
+  border: 2px #777 solid;
+  background: #111;
+  border-radius: 5px;
+}
+
+#playCt>button {
+  position: absolute;
+  right: 20px;
+  border: none;
+  background: none;
+  font-size: 24px;
+  padding: 12px;
+  color: #CCC;
+  cursor: pointer;
+}
+
+#playCt>div {
+  height: 100%;
+}
+
+#playCt iframe {
+  width: 100%;
+  height: 100%;
 }
