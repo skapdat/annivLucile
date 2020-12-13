@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@500&display=swap');
+
 h1 {
   font-size: 45px;
 }
@@ -37,20 +39,41 @@ main {
   line-height: 1.65;
   margin: 0 auto;
   text-align: center;
+  background-color: #daf1e6;
 }
 main p {
   display: inline-block;
   width: 20%;
-  height: 150px;
-  padding: 30px;
+  height: 190px;
+  padding: 55px;
   text-align: center;
   box-sizing: border-box;
-  background-color: #0076ff;
-  margin: 0;
+  background-color: #00c7ab;
+  font-size: 50px;
+  vertical-align: middle;
+  margin: 20px;
   cursor: pointer;
+  color: #FFF;
+  border-radius: 15px;
+  box-shadow: 4px 4px 11px 2px rgba(0,0,0,0.5);
+  font-family: 'Sansita Swashed', cursive;
 }
+
 main p:hover {
-  background-color: #0555af;
+  background-color: #5fe0ce;
+  transform: rotate(-3deg);
+}
+main p.seen {
+  transform: rotate(-3deg);
+}
+main p.seen>span {
+  background: #FFF;
+  display: block;
+  border-radius: 80px;
+  width: 100px;
+  height: 100px;
+  margin: -10px auto;
+  color: #00c7ab;
 }
 
 #playCt {
@@ -82,4 +105,37 @@ main p:hover {
 #playCt iframe {
   width: 100%;
   height: 100%;
+}
+
+#adminCt iframe {
+    width: 100%;
+    height: 100%;
+}
+
+#adminCt span {
+  display: block;
+}
+
+#adminCt input {
+  padding: 4px;
+  margin-bottom : 8px;
+  width: 80%;
+  color: #444;
+  text-align: center;
+}
+
+main#adminCt p {
+  display: inline-block;
+  width: 20%;
+  height: auto;
+  padding: 10px;
+  text-align: center;
+  box-sizing: border-box;
+  background: none;
+  margin: 0;
+  cursor: pointer;
+}
+
+main#adminCt p:hover {
+  background: none;
 }

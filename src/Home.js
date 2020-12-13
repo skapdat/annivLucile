@@ -32,8 +32,8 @@ class Home extends Component {
         <main>
           {
             Object.values(this.state.quest).map((vid, i) => 
-              <p key={i} onClick={() => this.onVidClicked(i)}>
-              {vid.seen ? "vu" : i}
+              <p key={i} onClick={() => this.onVidClicked(i)} className={vid.seen ? "seen" : ""}>
+              {vid.seen ? <span>vu</span> : (i + 1)}
               </p>
             )
           }
