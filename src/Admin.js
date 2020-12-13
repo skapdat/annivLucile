@@ -33,6 +33,7 @@ class Home extends Component {
     var nQuest = Object.assign({}, quest);
     Object.values(this.state.quest).map((vid, i) => {
       nQuest[i].seen = false;
+      return;
     });
     firebase.database().ref('videos').set(nQuest);
   }
