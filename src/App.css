@@ -59,7 +59,7 @@ main p {
   font-family: 'Sansita Swashed', cursive;
 }
 
-main p:hover {
+main#home p:hover {
   background-color: #5fe0ce;
   transform: rotate(-3deg);
 }
@@ -138,4 +138,9 @@ main#adminCt p {
 
 main#adminCt p:hover {
   background: none;
+}
+
+#reset {
+  margin-top: 8px;
+  padding: 3px;
 }

@@ -52,7 +52,7 @@ class Home extends Component {
               </p>
             )
           }
-          <button onClick={() => this.resetSeen()}>Reset</button>
+          <button id="reset" onClick={() => this.resetSeen()}>Reset</button>
         </main>
     );
   }
