@@ -31,7 +31,7 @@ class Home extends Component {
   resetSeen() {
     const {quest} = this.state;
     var nQuest = Object.assign({}, quest);
-    Object.values(this.state.quest).map(function(vid, i) {
+    Object.values(this.state.quest).forEach((vid, i) => {
       nQuest[i].seen = false;
     });
     firebase.database().ref('videos').set(nQuest);
