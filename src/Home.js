@@ -3,6 +3,7 @@ import firebase from "firebase/app";
 import "firebase/database";
 import Vimeo from '@u-wave/react-vimeo';
 class Home extends Component {
+  randSel = [];
   constructor(props) {
       super(props);
       this.state = {quest: [], actVid: null};
@@ -41,10 +42,28 @@ class Home extends Component {
     }
     return nCol;
   }
+
+  randomVid() {
+    const {quest} = this.state;
+    var selVid = -1;
+    if (this.randSel.length === Object.values(quest).length) { this.randSel = [] };
+    selVid = Math.floor(Math.random() *  Object.values(quest).length);
+    if (this.randSel.indexOf(selVid) > -1) {
+      while (this.randSel.indexOf(selVid) > -1) {
+        selVid = Math.floor(Math.random() *  Object.values(quest).length);
+      }
+    }
+    this.randSel.push(selVid);
+    this.setState({
+      actVid: quest[selVid]
+    });
+  }
+
   render() {
     var pCol = "";
     return (
         <main id="home">
+          <button id='random' onClick={() => this.randomVid()}>Au hasard</button>
           {
             Object.values(this.state.quest).map((vid, i) => {
               pCol = this.getBgCol(pCol);

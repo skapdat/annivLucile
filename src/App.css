@@ -40,6 +40,7 @@ main {
   margin: 0 auto;
   text-align: center;
   background-color: #daf1e6;
+  padding-top: 20px;
 }
 main p {
   display: inline-block;
@@ -71,6 +72,30 @@ main p.seen>span {
   padding: 11px 8px;
   color: #00c7ab;
   font-size: 36px;
+}
+
+button#random {
+  display: block;
+  margin: 0 auto 30px;
+  left: 0;
+  padding: 20px;
+  font-size: 30px;
+  font-family: 'Sansita Swashed', cursive;
+  cursor: pointer;
+  border: none;
+  border: 7px solid #FFFF;
+  background: #73d45b;
+  color: #FFF;
+  border-radius: 20vh;
+  z-index: 100;
+  outline: none;
+  box-shadow: 4px 4px 11px 2px rgba(0,0,0,0.5);
+}
+
+button#random:hover {
+  border-color: #73d45b;
+  background: #FFF;
+  color: #73d45b;
 }
 
 #playCt {
