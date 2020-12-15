@@ -18,6 +18,17 @@ class Home extends Component {
       });
   }
 
+  onTiChanged(idVid, e) {
+    const {quest} = this.state;
+    var nQuest = Object.assign({}, quest);
+    nQuest[idVid].title = e.target.value;
+    this.setState({
+      quest: nQuest
+    });
+    firebase.database().ref('videos').set(nQuest);
+  }
+
+
   onVidChanged(idVid, e) {
     const {quest} = this.state;
     var nQuest = Object.assign({}, quest);
@@ -43,13 +54,14 @@ class Home extends Component {
           <h2>Admin</h2>
           {
             Object.values(this.state.quest).map((vid, i) => 
-              <p key={i}>
+              <div key={i}>
                 <span>{(i + 1)}</span>
+                <input type="text" value={vid.title} onChange={(e) => this.onTiChanged(i, e)}/>
                 <input type="text" value={vid.vid} onChange={(e) => this.onVidChanged(i, e)}/>
                 <Vimeo
                   video={vid.vid}
                 />
-              </p>
+              </div>
             )
           }
           <button id="reset" onClick={() => this.resetSeen()}>Reset</button>

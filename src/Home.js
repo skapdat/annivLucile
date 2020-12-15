@@ -27,15 +27,33 @@ class Home extends Component {
     });
   }
 
+  getBgCol(pCol = "") {
+    const bgColT = [
+      "#009E9A",
+      "#41D9BE",
+      "#FFCC1D",
+      "#FF8614",
+      "#F23F14"
+    ];
+    var nCol = pCol;
+    while (nCol === pCol) {
+      nCol = bgColT[Math.floor(Math.random() * 5)];
+    }
+    return nCol;
+  }
   render() {
+    var pCol = "";
     return (
         <main id="home">
           {
-            Object.values(this.state.quest).map((vid, i) => 
-              <p key={i} onClick={() => this.onVidClicked(i)} className={vid.seen ? "seen" : ""}>
-              {vid.seen ? <span>vu</span> : (i + 1)}
-              </p>
-            )
+            Object.values(this.state.quest).map((vid, i) => {
+              pCol = this.getBgCol(pCol);
+              return (
+                <p key={i} onClick={() => this.onVidClicked(i)} className={vid.seen ? "seen" : ""} style={{backgroundColor: pCol}}>
+                {vid.seen ? <span style={{color: pCol}}>{vid.title}</span> : (i + 1)}
+                </p>
+              )
+            })
           }
           {
             this.state.actVid && (
