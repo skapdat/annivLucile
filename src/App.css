@@ -46,7 +46,7 @@ main p {
   display: inline-block;
   width: 20%;
   height: 190px;
-  padding: 55px;
+  padding: 61px;
   text-align: center;
   box-sizing: border-box;
   font-size: 50px;
@@ -71,7 +71,7 @@ main p.seen>span {
   border-radius: 80px;
   padding: 11px 8px;
   color: #00c7ab;
-  font-size: 36px;
+  font-size: 28px;
 }
 
 button#random {
