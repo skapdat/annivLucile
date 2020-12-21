@@ -73,7 +73,7 @@ class Home extends Component {
     return (
         <main id="home">
           {
-            this.state.isRandom && <button id='random' onClick={() => this.randomVid()}>Au hasard</button>
+            this.state.isRandom && <div id="randCt"><button id='random' onClick={() => this.randomVid()}>Au hasard</button></div>
           }
           {
             Object.values(this.state.quest).map((vid, i) => {
