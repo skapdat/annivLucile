@@ -6,14 +6,18 @@ class Home extends Component {
   randSel = [];
   constructor(props) {
       super(props);
-      this.state = {quest: [], actVid: null};
+      this.state = {quest: [], actVid: null, isRandom: false};
       const ref = firebase.database().ref('videos');
       ref.once('value', (snapshot) => {
         var dataQuest = [];
         snapshot.forEach(childSnapshot => {
             dataQuest[childSnapshot.key] = childSnapshot.val();
         });
-        this.setState({quest: dataQuest});
+        var isRd = Object.values(dataQuest).reduce((acc, o) => {
+          if (o.seen) acc++;
+          return acc;
+        }, 0);
+        this.setState({quest: dataQuest, isRandom: isRd === Object.values(dataQuest).length});
       });
   }
 
@@ -22,9 +26,14 @@ class Home extends Component {
     var nQuest = Object.assign({}, quest);
     nQuest[idVid].seen = true;
     firebase.database().ref('videos').set(nQuest);
+    var isRd = Object.values(nQuest).reduce((acc, o) => {
+      if (o.seen) acc++;
+      return acc;
+    }, 0);
     this.setState({
       actVid: quest[idVid],
-      quest: nQuest
+      quest: nQuest,
+      isRandom: isRd === Object.values(nQuest).length
     });
   }
 
@@ -63,7 +72,9 @@ class Home extends Component {
     var pCol = "";
     return (
         <main id="home">
-          <button id='random' onClick={() => this.randomVid()}>Au hasard</button>
+          {
+            this.state.isRandom && <button id='random' onClick={() => this.randomVid()}>Au hasard</button>
+          }
           {
             Object.values(this.state.quest).map((vid, i) => {
               pCol = this.getBgCol(pCol);
